@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript30 Navbar</title>
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/img/Logo.svg" alt="">
+            </div>
+            <div class="links">
+                <div class="popover_parent">
+                    <a href="#">
+                        Products
+                    </a>
+                    <ul class="popover">
+                        <div class="products-item-mobile">
+                            <p>PRODUCTS</p><img src="assets/img/Close.svg" alt="">
+                        </div>
+                        <div class="popover-item">
+                            <span class="title-popover"><img src="assets/img/Spense_Icon.svg" alt="">Spense</span>
+                            <p>Spense is a landing page for writers. Great for practicing absolute positioning and flex
+                                layouts.</p>
+                        </div>
+                        <div class="popover-item">
+                            <span class="title-popover"><img src="assets/img/Fiber_Icon.svg" alt="">Fiber Landing
+                                Page</span>
+                            <p>An online portfolio generator. Great to practice flex/grid layouts, and absolute
+                                positioning.</p>
+                        </div>
+                        <div class="popover-item">
+                            <span class="title-popover"><img src="assets/img/Gradie_Icon.svg" alt="">Gradie Sign Up
+                                Page</span>
+                            <p>Gradie is a simple sign up page, great to practice centering layouts.</p>
+                        </div>
+                    </ul>
+
+                </div>
+                <a href="#">Challenges</a>
+                <a href="#">Resources</a>
+                <a href="#">Other Links</a>
+            </div>
+            <div class="signin">
+                <a href="#">Sign in</a>
+                <button class="for-free-btn">Try for free</button>
+            </div>
+            <div class="mobile-nav">
+                <div class="popover_parent">
+                    <a href="#">
+                        <div class="close-nav-mobile">
+                            <img src="assets/img/Menu.svg" alt="">
+                        </div>
+                    </a>
+                    <ul class="popover">
+                        <div class="products-item-mobile">
+                            <p>PRODUCTS</p><img id="close-nav-mobile" src="assets/img/Close.svg" alt="">
+                        </div>
+                        <div class="popover-item">
+                            <span class="title-popover"><img src="assets/img/Spense_Icon.svg" alt="">Spense</span>
+                            <p>Spense is a landing page for writers. Great for practicing absolute positioning and flex
+                                layouts.</p>
+                        </div>
+                        <div class="popover-item">
+                            <span class="title-popover"><img src="assets/img/Fiber_Icon.svg" alt="">Fiber Landing
+                                Page</span>
+                            <p>An online portfolio generator. Great to practice flex/grid layouts, and absolute
+                                positioning.</p>
+                        </div>
+                        <div class="popover-item">
+                            <span class="title-popover"><img src="assets/img/Gradie_Icon.svg" alt="">Gradie Sign Up
+                                Page</span>
+                            <p>Gradie is a simple sign up page, great to practice centering layouts.</p>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        // Toggle 'active' class on click
+        document.querySelectorAll('.popover_parent a').forEach(function (element) {
+            element.addEventListener('click', function () {
+                document.querySelectorAll('.popover_parent > a').forEach(function (el) {
+                    if (el !== this) {
+                        el.parentElement.classList.remove('active');
+                    }
+                }, this);
+                this.parentElement.classList.toggle('active');
+            });
+        });
+
+        // Hide the dropdown when clicked off
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('.popover_parent')) {
+                // Hide the menus.
+                document.querySelectorAll('.popover_parent.active').forEach(function (el) {
+                    el.classList.remove('active');
+                });
+            }
+        });
+
+        const close_mobile = document.getElementById('close-nav-mobile');
+
+        close_mobile.addEventListener('click', function () {
+            document.querySelectorAll('.popover_parent.active').forEach(function (el) {
+                el.classList.remove('active');
+            });
+        });
+    </script>
+
+    <!-- Main content -->
+    <main>
+        <section class="left-col">
+            <h1>Ondeck is your remote <span class="highlight">conference calling tool</span></h1>
+            <p class="first-paragraph">Ondeck is a service that allows you to create beautiful, online, and encrypted
+                video calls for you and
+                your remote team.</p>
+            <button class="for-free-btn">Try for free</button>
+            <p class="second-paragraph">5.0 Rating based on reviews from: <img src="assets/img/Capterra Logo.svg"
+                    alt=""><img src="assets/img/AlternativeTo Logo.svg" alt=""><img src="assets/img/shopify-icon.svg"
+                    alt=""></p>
+        </section>
+        <section class="right-col">
+            <img src="assets/img/Hero Image.png" alt="">
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <section>
+            <p>Trusted by 3+ million people at companies like</p>
+            <div class="logos-footer">
+                <img src="assets/img/Netflix Logo.svg" alt=""><img src="assets/img/Shopify Logo.svg" alt=""><img
+                    src="assets/img/Spotify Logo.svg" alt=""><img src="assets/img/Walmart Logo.svg" alt="">
+            </div>
+        </section>
+    </footer>
+
+</body>
+
+</html>
